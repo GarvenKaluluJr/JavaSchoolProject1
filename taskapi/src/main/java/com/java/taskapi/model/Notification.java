@@ -9,8 +9,10 @@ public class Notification {
     private boolean read;
 
     // --- Constructors ---
+
     public Notification() {
     }
+
     public Notification(UUID id, UUID userId, String message, boolean read) {
         this.id = id;
         this.userId = userId;
