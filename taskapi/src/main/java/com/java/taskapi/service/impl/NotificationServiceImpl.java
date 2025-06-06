@@ -2,11 +2,13 @@ package com.java.taskapi.service.impl;
 
 import com.java.taskapi.model.Notification;
 import com.java.taskapi.service.NotificationService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@Profile("memory")
 public class NotificationServiceImpl implements NotificationService {
 
     private final Map<UUID, Notification> notifications = new HashMap<>();
