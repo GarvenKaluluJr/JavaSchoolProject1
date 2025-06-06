@@ -2,11 +2,13 @@ package com.java.taskapi.service.impl;
 
 import com.java.taskapi.model.User;
 import com.java.taskapi.service.UserService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@Profile("memory")
 public class UserServiceImpl implements UserService {
 
     private final Map<String, User> usersByUsername = new HashMap<>();

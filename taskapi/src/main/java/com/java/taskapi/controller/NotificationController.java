@@ -20,7 +20,6 @@ public class NotificationController {
         return ResponseEntity.ok(notificationService.getAllNotifications(userId));
     }
 
-
     @GetMapping("/{userId}/pending")
     public ResponseEntity<List<Notification>> getPending(@PathVariable UUID userId) {
         return ResponseEntity.ok(notificationService.getPendingNotifications(userId));

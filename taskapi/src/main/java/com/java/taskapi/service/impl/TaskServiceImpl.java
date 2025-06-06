@@ -2,11 +2,13 @@ package com.java.taskapi.service.impl;
 
 import com.java.taskapi.model.Task;
 import com.java.taskapi.service.TaskService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@Profile("memory")
 public class TaskServiceImpl implements TaskService {
 
     private final Map<UUID, Task> tasks = new HashMap<>();
@@ -37,7 +39,7 @@ public class TaskServiceImpl implements TaskService {
     public Task addTask(Task task) {
         UUID id = UUID.randomUUID();
         task.setId(id);
-        task.setDeleted(false); // Optional
+        task.setDeleted(false);
         tasks.put(id, task);
         return task;
     }
