@@ -1,23 +1,20 @@
 package com.java.taskapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Table(name = "notification")
 public class Notification {
-
     @Id
     private UUID id;
 
-    @Column(nullable = false)
+    @Column(name = "user_id")
     private UUID userId;
 
     private String message;
     private boolean read;
 
-    // Constructors
     public Notification() {}
 
     public Notification(UUID id, UUID userId, String message, boolean read) {
@@ -27,7 +24,6 @@ public class Notification {
         this.read = read;
     }
 
-    // Getters and Setters
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
 

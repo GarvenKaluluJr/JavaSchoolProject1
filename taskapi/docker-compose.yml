@@ -2,30 +2,27 @@ services:
   db:
     image: postgres:16-alpine
     container_name: taskapi_postgres
-    restart: always
     environment:
       POSTGRES_DB: taskdb
-      POSTGRES_USER: taskuser
-      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
     ports:
       - "5432:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - taskapi_db_data:/var/lib/postgresql/data
 
   app:
     build: .
     container_name: taskapi_app
-    restart: always
-    depends_on:
-      - db
     environment:
-      SPRING_PROFILES_ACTIVE: db
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/taskdb
-      SPRING_DATASOURCE_USERNAME: taskuser
-      SPRING_DATASOURCE_PASSWORD: secretpassword
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_PROFILES_ACTIVE: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/taskdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: yourpassword
     ports:
       - "8080:8080"
+    depends_on:
+      - db
 
 volumes:
-  db_data:
+  taskapi_db_data:
