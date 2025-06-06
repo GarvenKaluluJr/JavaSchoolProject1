@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@Profile("db")
+@Profile({"postgres"})
 public class TaskServiceDbImpl implements TaskService {
 
     private final TaskRepository taskRepository;

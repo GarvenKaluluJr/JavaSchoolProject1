@@ -43,7 +43,6 @@ class TaskServiceImplTest {
         Task t2 = new Task();
         t2.setUserId(userId);
         t2.setDescription("Task 2");
-        t2.setDeleted(false);
         taskService.addTask(t2);
 
         List<Task> all = taskService.getAllTasks(userId);
@@ -59,7 +58,7 @@ class TaskServiceImplTest {
 
         Task t2 = new Task();
         t2.setUserId(userId);
-        t2.setCompleted(true); // Completed task
+        t2.setCompleted(true);
         taskService.addTask(t2);
 
         List<Task> pending = taskService.getPendingTasks(userId);
