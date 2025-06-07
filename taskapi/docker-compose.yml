@@ -40,3 +40,4 @@ services:
 volumes:
   taskapi_db_data:
 
+

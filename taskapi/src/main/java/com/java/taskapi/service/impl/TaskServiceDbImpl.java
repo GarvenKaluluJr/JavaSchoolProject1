@@ -15,7 +15,6 @@ public class TaskServiceDbImpl implements TaskService {
     private final TaskRepository taskRepository;
     private final TaskPublisher taskPublisher;
 
-    // Note: Add TaskPublisher to the constructor
     public TaskServiceDbImpl(TaskRepository taskRepository, TaskPublisher taskPublisher) {
         this.taskRepository = taskRepository;
         this.taskPublisher = taskPublisher;

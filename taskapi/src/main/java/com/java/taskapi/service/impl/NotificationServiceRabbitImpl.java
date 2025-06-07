@@ -19,7 +19,6 @@ public class NotificationServiceRabbitImpl implements NotificationService {
         this.notificationRepository = notificationRepository;
     }
 
-    // This will ONLY get called by RabbitMQ Listener, not directly
     @RabbitListener(queues = "task.queue")
     public void processTaskMessage(TaskMessage message) {
         Notification notification = new Notification();
@@ -30,7 +29,6 @@ public class NotificationServiceRabbitImpl implements NotificationService {
         notificationRepository.save(notification);
     }
 
-    // Implement the interface but do nothing for these methods
     @Override public java.util.List<Notification> getAllNotifications(UUID userId) { return notificationRepository.findByUserId(userId); }
     @Override public java.util.List<Notification> getPendingNotifications(UUID userId) { return notificationRepository.findByUserIdAndReadFalse(userId); }
     @Override public Notification addNotification(Notification notification) { return notificationRepository.save(notification); }

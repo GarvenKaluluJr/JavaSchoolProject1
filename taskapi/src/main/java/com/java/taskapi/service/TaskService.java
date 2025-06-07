@@ -8,5 +8,5 @@ public interface TaskService {
     List<Task> getAllTasks(UUID userId);
     List<Task> getPendingTasks(UUID userId);
     Task addTask(Task task);
-    void deleteTask(UUID taskId); // Marks as deleted
+    void deleteTask(UUID taskId);
 }
