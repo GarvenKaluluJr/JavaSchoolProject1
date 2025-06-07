@@ -2,8 +2,8 @@ package com.java.taskapi.service.impl;
 
 import com.java.taskapi.model.Task;
 import com.java.taskapi.service.TaskService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Profile;
 
 import java.util.*;
 
